@@ -8,7 +8,7 @@
 1) Добавляем диск и монтируем по Lable (/mnt/jenkins/)
 2) Запускаем docker-compose.yml
 3) Настраиваем сервис
-# Перенос данных на дополнительный диск и запуск (На данный момент, запускаем через .sh) 
+# Перенос данных на дополнительный диск и запуск
 1) Добавляем диск и монтируем по Lable (/mnt/jenkins/)
 2) Копируем данные Jenkins ```sudo cp -r /var/lib/docker/volumes/opt_jenkins_data/_data/* /mnt/jenkins/ ``` # Пример!
 3) Заходим в папку ```.scripts``` делаем права ```chmod +x .compose-helper.sh```

@@ -1,0 +1,26 @@
+version: '3.7'
+volumes:
+  jenkins_data:
+    driver: local
+    driver_opts:
+      type: "ext4"
+      device: "/dev/vdb1"
+services:
+  jenkins:
+    build:
+      context: .
+      args:
+        USER_GROUP_ID: $USER_GROUP_ID
+        USER_ID: $USER_ID
+    labels:
+      kompose.service.type: nodeport
+    ports:
+      - '80:8080'
+      - '443:8443'
+      - '50000:50000'
+    volumes:
+      - 'jenkins_data:/var/jenkins_home'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './bashrc:/var/jenkins_home/.bashrc'
+    container_name: jenkins
+    restart: always
